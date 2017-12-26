@@ -61,9 +61,17 @@ public class TranscriptConsequence
     private String polyphenPrediction;
     private Double siftScore;
     private String siftPrediction;
+    private Integer cdnaStart;
+    private Integer cdnaEnd;
+    private Integer cdsStart;
+    private Integer cdsEnd;
+    private String biotype;
+    private String geneSymbolSource;
+    private String impact;
 
     private List<String> refseqTranscriptIds;
     private List<String> consequenceTerms;
+    private List<Domain> domains;
 
     private Map<String, Object> dynamicProps;
 
@@ -273,6 +281,78 @@ public class TranscriptConsequence
     public void setConsequenceTerms(List<String> consequenceTerms)
     {
         this.consequenceTerms = consequenceTerms;
+    }
+
+    @Field(value="cdna_start")
+    public Integer getCdnaStart() {
+        return cdnaStart;
+    }
+
+    public void setCdnaStart(Integer cdnaStart) {
+        this.cdnaStart = cdnaStart;
+    }
+
+    @Field(value="cdna_end")
+    public Integer getCdnaEnd() {
+        return cdnaEnd;
+    }
+
+    public void setCdnaEnd(Integer cdnaEnd) {
+        this.cdnaEnd = cdnaEnd;
+    }
+
+    @Field(value="cds_start")
+    public Integer getCdsStart() {
+        return cdsStart;
+    }
+
+    public void setCdsStart(Integer cdsStart) {
+        this.cdsStart = cdsStart;
+    }
+
+    @Field(value="cds_end")
+    public Integer getCdsEnd() {
+        return cdsEnd;
+    }
+
+    public void setCdsEnd(Integer cdsEnd) {
+        this.cdsEnd = cdsEnd;
+    }
+
+    @Field(value="biotype")
+    public String getBiotype() {
+        return biotype;
+    }
+
+    public void setBiotype(String biotype) {
+        this.biotype = biotype;
+    }
+
+    @Field(value="gene_symbol_source")
+    public String getGeneSymbolSource() {
+        return geneSymbolSource;
+    }
+
+    public void setGeneSymbolSource(String geneSymbolSource) {
+        this.geneSymbolSource = geneSymbolSource;
+    }
+
+    @Field(value="impact")
+    public String getImpact() {
+        return impact;
+    }
+
+    public void setImpact(String impact) {
+        this.impact = impact;
+    }
+
+    @Field(value="domains")
+    public List<Domain> getDomains() {
+        return domains;
+    }
+
+    public void setDomains(List<Domain> domains) {
+        this.domains = domains;
     }
 
     // this is to dynamically add additional properties for this transcript

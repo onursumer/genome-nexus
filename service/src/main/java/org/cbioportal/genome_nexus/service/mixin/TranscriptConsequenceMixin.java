@@ -1,6 +1,7 @@
 package org.cbioportal.genome_nexus.service.mixin;
 
 import com.fasterxml.jackson.annotation.*;
+import org.cbioportal.genome_nexus.model.Domain;
 
 import java.util.List;
 import java.util.Map;
@@ -59,11 +60,35 @@ public class TranscriptConsequenceMixin
     @JsonProperty(value="sift_prediction", required = true)
     private String siftPrediction;
 
+    @JsonProperty(value="cdna_start", required = true)
+    private Integer cdnaStart;
+
+    @JsonProperty(value="cdna_end", required = true)
+    private Integer cdnaEnd;
+
+    @JsonProperty(value="cds_start", required = true)
+    private Integer cdsStart;
+
+    @JsonProperty(value="cds_end", required = true)
+    private Integer cdsEnd;
+
+    @JsonProperty(value="biotype", required = true)
+    private String biotype;
+
+    @JsonProperty(value="gene_symbol_source", required = true)
+    private String geneSymbolSource;
+
+    @JsonProperty(value="impact", required = true)
+    private String impact;
+
     @JsonProperty(value="refseq_transcript_ids", required = true)
     private List<String> refseqTranscriptIds;
 
     @JsonProperty(value="consequence_terms", required = true)
     private List<String> consequenceTerms;
+
+    @JsonProperty(value="domains", required = true)
+    private List<Domain> domains;
 
     @JsonIgnore
     private Map<String, Object> dynamicProps;

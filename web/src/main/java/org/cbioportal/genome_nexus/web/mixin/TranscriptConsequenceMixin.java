@@ -2,6 +2,7 @@ package org.cbioportal.genome_nexus.web.mixin;
 
 import com.fasterxml.jackson.annotation.*;
 import io.swagger.annotations.ApiModelProperty;
+import org.cbioportal.genome_nexus.model.Domain;
 
 import java.util.List;
 import java.util.Map;
@@ -77,6 +78,34 @@ public class TranscriptConsequenceMixin
     @ApiModelProperty(value = "Sift Prediction", required = false)
     private String siftPrediction;
 
+    @JsonProperty(value="cdna_start", required = true)
+    @ApiModelProperty(value = "cDNA start", required = false)
+    private Integer cdnaStart;
+
+    @JsonProperty(value="cdna_end", required = true)
+    @ApiModelProperty(value = "cDNA end", required = false)
+    private Integer cdnaEnd;
+
+    @JsonProperty(value="cds_start", required = true)
+    @ApiModelProperty(value = "CDS start", required = false)
+    private Integer cdsStart;
+
+    @JsonProperty(value="cds_end", required = true)
+    @ApiModelProperty(value = "CDS end", required = false)
+    private Integer cdsEnd;
+
+    @JsonProperty(value="biotype", required = true)
+    @ApiModelProperty(value = "Biotype", required = false)
+    private String biotype;
+
+    @JsonProperty(value="gene_symbol_source", required = true)
+    @ApiModelProperty(value = "Gene Smybol Source", required = false)
+    private String geneSymbolSource;
+
+    @JsonProperty(value="impact", required = true)
+    @ApiModelProperty(value = "Impact", required = false)
+    private String impact;
+
     @JsonProperty(value="refseq_transcript_ids", required = true)
     @ApiModelProperty(value = "List of RefSeq transcript ids", required = false)
     private List<String> refseqTranscriptIds;
@@ -84,6 +113,10 @@ public class TranscriptConsequenceMixin
     @JsonProperty(value="consequence_terms", required = true)
     @ApiModelProperty(value = "List of consequence terms", required = false)
     private List<String> consequenceTerms;
+
+    @JsonProperty(value="domains", required = true)
+    @ApiModelProperty(value = "List of domains", required = false)
+    private List<Domain> domains;
 
     @JsonIgnore
     private Map<String, Object> dynamicProps;
