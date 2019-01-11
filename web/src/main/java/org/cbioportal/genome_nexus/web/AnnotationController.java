@@ -196,7 +196,6 @@ public class AnnotationController
         @RequestParam(required = false) List<String> fields)
         throws VariantAnnotationNotFoundException, VariantAnnotationWebServiceException
     {
-        //boolean isValid = this.genomicLocationValidator.validate(genomicLocation);
         return this.variantAnnotationService.getAnnotationByGenomicLocation(genomicLocation, isoformOverrideSource, fields);
     }
 

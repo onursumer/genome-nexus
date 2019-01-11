@@ -10,7 +10,6 @@ import org.cbioportal.genome_nexus.web.validation.IsValidGenomicLocation;;
 public class GenomicLocationValidator implements ConstraintValidator<IsValidGenomicLocation, String> {
     
     public void initialize(IsValidGenomicLocation constraintAnnotation) {
- 
     }
 
     public boolean isValid(String genomicLocation, ConstraintValidatorContext context) 
@@ -26,7 +25,7 @@ public class GenomicLocationValidator implements ConstraintValidator<IsValidGeno
             // start & end should be positive integer
             result &= Integer.valueOf(genomicLocationSplit[1]) >= 0 && Integer.valueOf(genomicLocationSplit[2]) >= 0;
             // variant & ref allele should only contain T,C,G,A,-
-            result &= genomicLocationSplit[3].matches(".*[TCGA-]*.") && genomicLocationSplit[4].matches(".*[TCGA-]*.");
+            result &= genomicLocationSplit[3].matches("[TCGA-]*") && genomicLocationSplit[4].matches("[TCGA-]*");
             return result;
         }
     }
