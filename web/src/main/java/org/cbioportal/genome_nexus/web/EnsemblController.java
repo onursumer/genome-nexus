@@ -3,6 +3,7 @@ package org.cbioportal.genome_nexus.web;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ExampleProperty;
 
 import org.cbioportal.genome_nexus.model.EnsemblGene;
 import org.cbioportal.genome_nexus.model.EnsemblTranscript;
@@ -113,11 +114,29 @@ public class EnsemblController
         produces = "application/json")
     public List<EnsemblTranscript> fetchEnsemblTranscriptsByEnsemblFilterPOST(
         @ApiParam(
-            value = EnsemblFilter.TRANSCRIPT_ID_DESC + "<br>OR<br>" +
+            name = "body",
+            value = "Request body in JSON format...",
+            
+            /*value = EnsemblFilter.TRANSCRIPT_ID_DESC + "<br>AND<br>" +
                 EnsemblFilter.HUGO_SYMBOL_DESC + "<br>OR<br>" +
                 EnsemblFilter.PROTEIN_ID_DESC + "<br>OR<br>" +
-                EnsemblFilter.GENE_ID_DESC,
+                EnsemblFilter.GENE_ID_DESC,*/
+
+            examples = @io.swagger.annotations.Example( 
+                value= 
+                    @ExampleProperty( mediaType = "application/json", value = "{‘foo’: ‘whatever’,'foo1’: ‘whatever1’,'foo2’: ‘whatever2’,'foo3’: ‘whatever3’}")),
             required = true)
+            
+            //required = true,
+            //examples = @io.swagger.annotations.Example(value= @ExampleProperty( mediaType = "application/json", value = "{foo: whatever, bar: whatever2}")))
+
+            /*@ApiParam(
+                name = "body",
+                value = "Request body in JSON format...",
+                required=true, 
+                examples = @io.swagger.annotations.Example(
+                    value= @ExampleProperty( mediaType = MediaType.APPLICATION_JSON_VALUE, value = "{foo: whatever, bar: whatever2}")) 
+            ) @RequestBody String body,*/
         @RequestBody EnsemblFilter ensemblFilter)
     {
         return this.ensemblService.getEnsemblTranscripts(
