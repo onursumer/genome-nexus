@@ -2,14 +2,11 @@ package org.cbioportal.genome_nexus.web.validation;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import org.cbioportal.genome_nexus.web.validation.ValidGenomicLocation;
 
-// import org.cbioportal.genome_nexus.model.GenomicLocation;
-import org.cbioportal.genome_nexus.web.validation.IsValidGenomicLocation;;
-
-
-public class GenomicLocationValidator implements ConstraintValidator<IsValidGenomicLocation, String> {
+public class GenomicLocationValidator implements ConstraintValidator<ValidGenomicLocation, String> {
     
-    public void initialize(IsValidGenomicLocation constraintAnnotation) {
+    public void initialize(ValidGenomicLocation constraintAnnotation) {
     }
 
     public boolean isValid(String genomicLocation, ConstraintValidatorContext context) 

@@ -1,7 +1,6 @@
 package org.cbioportal.genome_nexus.web.validation;
-import javax.validation.Constraint;
-import javax.validation.Payload;
 
+import javax.validation.Constraint;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -12,6 +11,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Constraint(validatedBy = { GenomicLocationValidator.class })
-public @interface IsValidGenomicLocation {
+public @interface ValidGenomicLocation {
     String message() default "genomicLocation is incorrect";
 }

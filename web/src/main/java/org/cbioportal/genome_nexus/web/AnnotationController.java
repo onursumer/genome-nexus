@@ -60,12 +60,10 @@ public class AnnotationController
 {
     private final VariantAnnotationService variantAnnotationService;
 
-
     @Autowired
     public AnnotationController(VariantAnnotationService variantAnnotationService)
     {
-        this.variantAnnotationService = variantAnnotationService;
-        
+        this.variantAnnotationService = variantAnnotationService;        
     }
 
     // TODO remove this endpoint after all internal dependencies are resolved
@@ -187,7 +185,7 @@ public class AnnotationController
     public VariantAnnotation fetchVariantAnnotationByGenomicLocationGET(
         @ApiParam(value="A genomic location. For example 7,140453136,140453136,A,T",
             required = true)
-        @PathVariable @IsValidGenomicLocation String genomicLocation,
+        @PathVariable @ValidGenomicLocation String genomicLocation,
         @ApiParam(value="Isoform override source. For example uniprot",
             required = false)
         @RequestParam(required = false) String isoformOverrideSource,

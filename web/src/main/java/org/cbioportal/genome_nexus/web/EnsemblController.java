@@ -3,7 +3,6 @@ package org.cbioportal.genome_nexus.web;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ExampleProperty;
 
 import org.cbioportal.genome_nexus.model.EnsemblGene;
 import org.cbioportal.genome_nexus.model.EnsemblTranscript;
@@ -114,10 +113,10 @@ public class EnsemblController
         produces = "application/json")
     public List<EnsemblTranscript> fetchEnsemblTranscriptsByEnsemblFilterPOST(
         @ApiParam(
-            value = EnsemblFilter.TRANSCRIPT_ID_DESC + "<br>AND<br>" +
-                    EnsemblFilter.HUGO_SYMBOL_DESC + "<br>OR<br>" +
-                    EnsemblFilter.PROTEIN_ID_DESC + "<br>OR<br>" +
-                    EnsemblFilter.GENE_ID_DESC,
+            value = EnsemblFilter.TRANSCRIPT_ID_DESC + "<br>OR<br>" +
+                EnsemblFilter.HUGO_SYMBOL_DESC + "<br>OR<br>" +
+                EnsemblFilter.PROTEIN_ID_DESC + "<br>OR<br>" +
+                EnsemblFilter.GENE_ID_DESC,
             required = true)
         @RequestBody EnsemblFilter ensemblFilter)
     {
