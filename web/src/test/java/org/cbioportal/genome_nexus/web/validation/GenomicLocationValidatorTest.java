@@ -18,7 +18,8 @@ public class GenomicLocationValidatorTest
             "12,25398284,-2,CC,GA", // false
             "12,25380271,25380271,12,T", // false
             "10,89692940,89692940,C,Q", // false
-            "X,89692940,89692940,C," // false
+            "X,89692940,89692940,C,", // false
+            "X_89692940_89692940_C_T" //false
         };
         GenomicLocationValidator validator = new GenomicLocationValidator();
         assertEquals(true, validator.isValid(genomicLocation[0], null));
@@ -28,6 +29,7 @@ public class GenomicLocationValidatorTest
         assertEquals(false, validator.isValid(genomicLocation[4], null));
         assertEquals(false, validator.isValid(genomicLocation[5], null));
         assertEquals(false, validator.isValid(genomicLocation[6], null));
+        assertEquals(false, validator.isValid(genomicLocation[7], null));
     }
 }
 

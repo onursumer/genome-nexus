@@ -63,7 +63,7 @@ public class AnnotationController
     @Autowired
     public AnnotationController(VariantAnnotationService variantAnnotationService)
     {
-        this.variantAnnotationService = variantAnnotationService;        
+        this.variantAnnotationService = variantAnnotationService;
     }
 
     // TODO remove this endpoint after all internal dependencies are resolved

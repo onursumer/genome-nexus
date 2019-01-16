@@ -12,13 +12,14 @@ public class GenomicLocationValidator implements ConstraintValidator<ValidGenomi
     public boolean isValid(String genomicLocation, ConstraintValidatorContext context) 
     {
         String[] genomicLocationSplit = genomicLocation.split(",");
-        if (genomicLocationSplit.length <5){
+        if (genomicLocationSplit.length < 5) {
             return false;
         }
-        else{
+        else {
             boolean result = true;
             // chr [1,24] or X or Y
-            result &= genomicLocationSplit[0].matches("X") || genomicLocationSplit[0].matches("Y") || genomicLocationSplit[0].matches("[0-9]+") && Integer.valueOf(genomicLocationSplit[0]) >= 1 && Integer.valueOf(genomicLocationSplit[0]) <= 24;
+            result &= genomicLocationSplit[0].matches("X") || genomicLocationSplit[0].matches("Y") ||
+            genomicLocationSplit[0].matches("[0-9]+") && Integer.valueOf(genomicLocationSplit[0]) >= 1 && Integer.valueOf(genomicLocationSplit[0]) <= 24;
             // start & end should be positive integer
             result &= Integer.valueOf(genomicLocationSplit[1]) >= 0 && Integer.valueOf(genomicLocationSplit[2]) >= 0;
             // variant & ref allele should only contain T,C,G,A,-
