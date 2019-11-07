@@ -65,7 +65,9 @@ public class IsoformAnnotationEnricher implements AnnotationEnricher
             }
 
             // override the canonical field
-            if (override != null && transcript.getGeneSymbol().equals(geneWithMostSevereConsequence))
+            if (override != null &&
+                transcript.getGeneSymbol() != null &&
+                transcript.getGeneSymbol().equals(geneWithMostSevereConsequence))
             // TODO && override.getGeneSymbol().equalsIgnoreCase(transcript.getGeneSymbol())
             {
                 transcript.setCanonical("1");
